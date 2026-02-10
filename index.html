@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WIRTGEN GROUP | Propostas Visuais 2026</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600&family=Oswald:wght@300;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-deep: #050505;
+            --bg-panel: #111111;
+            --bg-card: rgba(20, 20, 20, 0.85);
+            --text-main: #e0e0e0;
+            --text-muted: #666666;
+            --brand-color: #ff5e00;
+            --success-color: #00c853;
+            --grid-line: rgba(255, 255, 255, 0.05);
+            --tech-font: 'Roboto Mono', monospace;
+            --head-font: 'Oswald', sans-serif;
+            --body-font: 'Barlow', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-deep);
+            background-image: 
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: var(--text-main);
+            font-family: var(--body-font);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px 20px;
+        }
+
+        /* HEADER */
+        header {
+            width: 100%;
+            max-width: 800px; /* Reduzi a largura pois teremos menos cards */
+            border-bottom: 2px solid var(--brand-color);
+            padding-bottom: 20px;
+            margin-bottom: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            position: relative;
+        }
+
+        header::before {
+            content: 'ATIVOS VISUAIS // REVISÃO FINAL';
+            position: absolute;
+            top: -30px;
+            left: 0;
+            font-family: var(--tech-font);
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-family: var(--head-font);
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            line-height: 0.9;
+            letter-spacing: -1px;
+        }
+        
+        h1 span { color: var(--brand-color); }
+
+        .header-meta {
+            text-align: right;
+            font-family: var(--tech-font);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* CONTAINER CENTRALIZADO */
+        .container-single {
+            display: flex;
+            justify-content: center;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        /* CARD */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--brand-color);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+
+        .card-number {
+            position: absolute;
+            top: -15px;
+            right: -5px;
+            font-family: var(--head-font);
+            font-size: 8rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.03);
+            line-height: 1;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .card-content {
+            padding: 40px 30px;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-header {
+            margin-bottom: 20px;
+            border-left: 3px solid var(--brand-color);
+            padding-left: 15px;
+        }
+
+        .concept-label {
+            font-family: var(--tech-font);
+            color: var(--brand-color);
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            font-family: var(--head-font);
+            font-size: 2.2rem; /* Aumentei um pouco pois é o foco */
+            font-weight: 500;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        .text-body {
+            font-size: 1.1rem; /* Aumentei para destaque */
+            line-height: 1.5;
+            color: #bbb;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        /* VISUAL ASSETS AREA */
+        .visual-assets {
+            margin-top: auto;
+            border-top: 1px dashed rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+
+        .asset-label {
+            font-family: var(--tech-font);
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .image-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 25px; /* Mais espaço entre as opções */
+        }
+
+        .kv-wrapper {
+            position: relative;
+            border: 1px solid #333;
+            background: #000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .kv-tag {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: var(--brand-color);
+            color: #000;
+            font-family: var(--tech-font);
+            font-size: 0.7rem;
+            padding: 4px 8px;
+            font-weight: bold;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .kv-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+        
+        .kv-wrapper:hover {
+            border-color: var(--brand-color);
+            box-shadow: 0 0 15px rgba(255, 94, 0, 0.3);
+        }
+
+        .kv-wrapper:hover .kv-img {
+            opacity: 1;
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.95);
+            backdrop-filter: blur(5px);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90vh;
+            border: none;
+            box-shadow: none;
+            animation: zoomIn 0.3s;
+        }
+
+        @keyframes zoomIn {
+            from {transform:scale(0.9); opacity:0}
+            to {transform:scale(1); opacity:1}
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            font-family: var(--head-font);
+            z-index: 10000;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: var(--brand-color);
+            text-decoration: none;
+        }
+
+        footer {
+            margin-top: 60px;
+            font-family: var(--tech-font);
+            font-size: 0.7rem;
+            color: #444;
+        }
+
+        /* MOBILE FIXES */
+        @media (max-width: 768px) {
+            body { padding: 30px 15px; }
+
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 40px;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+                margin-bottom: 15px;
+            }
+
+            .header-meta {
+                text-align: left;
+                width: 100%;
+                border-top: 1px solid #333;
+                padding-top: 10px;
+            }
+
+            .card-number {
+                font-size: 5rem;
+                top: -5px;
+                opacity: 0.05;
+            }
+
+            .card-content { padding: 30px 20px; }
+            h2 { font-size: 1.8rem; }
+
+            .close {
+                right: 20px;
+                top: 20px;
+                font-size: 50px;
+            }
+            
+            .modal-content {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Wirtgen<br><span>Propostas Visuais // 2026</span></h1>
+        <div class="header-meta">
+            <p>CONCEITOS DA CAMPANHA</p>
+            <p>STATUS: <span style="color:#00c853">EM REVISÃO</span></p>
+        </div>
+    </header>
+
+    <div class="container-single">
+
+        <article class="card">
+            <div class="card-number">01</div>
+            <div class="card-content">
+                <div class="card-header">
+                    <span class="concept-label">Núcleo de Performance</span>
+                    <h2>Quem tem Wirtgen,<br>não tem dúvida.</h2>
+                </div>
+                <div class="text-body">
+                    <p>Foco na previsibilidade, estabilidade e segurança técnica da decisão.</p>
+                </div>
+                
+                <div class="visual-assets">
+                    <span class="asset-label">KEY VISUALS [2 OPÇÕES COM AJUSTES] - CLIQUE P/ AMPLIAR</span>
+                    <div class="image-stack">
+                        
+                        <div class="kv-wrapper">
+                            <div class="kv-tag">OPÇÃO A (AJUSTADO)</div>
+                            <img src="https://raw.githubusercontent.com/eduardoalvespessoal-star/propostasWIRTGEN2026/main/12609-wirtgen-campanha-fresadoras-1.jpg" alt="KV 1 Versão A" class="kv-img trigger-modal">
+                        </div>
+
+                        <div class="kv-wrapper">
+                            <div class="kv-tag">OPÇÃO B (AJUSTADO)</div>
+                            <img src="https://raw.githubusercontent.com/eduardoalvespessoal-star/propostasWIRTGEN2026/main/12609-wirtgen-campanha-fresadoras-1b.jpg" alt="KV 1 Versão B" class="kv-img trigger-modal">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </article>
+
+    </div>
+
+    <footer>
+        <span>© 2026 WIRTGEN GROUP // SISTEMA: ONLINE V8.1 (SINGLE VIEW)</span>
+    </footer>
+
+    <div id="kv-modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-image">
+    </div>
+
+    <script>
+        const modal = document.getElementById("kv-modal");
+        const modalImg = document.getElementById("modal-image");
+        const closeBtn = document.getElementsByClassName("close")[0];
+        const triggers = document.querySelectorAll('.trigger-modal');
+
+        triggers.forEach(img => {
+            img.addEventListener('click', function() {
+                modal.style.display = "flex";
+                modalImg.src = this.src;
+                modalImg.alt = this.alt;
+            });
+        });
+
+        closeBtn.onclick = function() { modal.style.display = "none"; }
+        modal.onclick = function(event) {
+            if (event.target === modal) { modal.style.display = "none"; }
+        }
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") { modal.style.display = "none"; }
+        });
+    </script>
+
+</body>
+</html>
