@@ -3,37 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WIRTGEN GROUP | Propostas Visuais 2026</title>
+    <title>OXI | Apresentação de Conceitos</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600&family=Oswald:wght@300;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --bg-deep: #050505;
-            --bg-panel: #111111;
-            --bg-card: rgba(20, 20, 20, 0.85);
-            --text-main: #e0e0e0;
-            --text-muted: #666666;
-            --brand-color: #ff5e00;
+            /* PALETA OXI (Baseada nos prints) */
+            --bg-deep: #2e0b30; /* Roxo Profundo do fundo */
+            --bg-card: rgba(60, 20, 65, 0.6); /* Roxo translúcido para os cards */
+            --text-main: #ffffff;
+            --text-muted: #dcbadd; /* Um lilás claro para textos secundários */
+            
+            --brand-color: #ffc20e; /* Amarelo OXI (John Deere Yellow vibes) */
             --success-color: #00c853;
-            --grid-line: rgba(255, 255, 255, 0.05);
-            --tech-font: 'Roboto Mono', monospace;
-            --head-font: 'Oswald', sans-serif;
-            --body-font: 'Barlow', sans-serif;
+            
+            --grid-line: rgba(255, 255, 255, 0.03);
+            
+            /* Nova Tipografia da Agência */
+            --main-font: 'Montserrat', sans-serif;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background-color: var(--bg-deep);
-            background-image: 
-                linear-gradient(var(--grid-line) 1px, transparent 1px),
-                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-            background-size: 40px 40px;
+            /* Removemos o grid industrial e colocamos um gradiente sutil elegante */
+            background-image: radial-gradient(circle at 50% 0%, #561859 0%, var(--bg-deep) 70%);
             color: var(--text-main);
-            font-family: var(--body-font);
+            font-family: var(--main-font);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -45,44 +45,46 @@
         header {
             width: 100%;
             max-width: 800px;
-            border-bottom: 2px solid var(--brand-color);
-            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 30px;
             margin-bottom: 60px;
             display: flex;
             justify-content: space-between;
-            align-items: flex-end;
-            position: relative;
+            align-items: center; /* Centralizado verticalmente */
         }
 
-        header::before {
-            content: 'ATIVOS VISUAIS // REVISÃO FINAL';
-            position: absolute;
-            top: -30px;
-            left: 0;
-            font-family: var(--tech-font);
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            letter-spacing: 2px;
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
-        h1 {
-            font-family: var(--head-font);
-            font-size: 3.5rem;
+        /* Classe para o Logo da Agência */
+        .agency-logo {
+            height: 60px; /* Ajuste conforme necessário */
+            width: auto;
+        }
+
+        /* Título do Projeto ao lado do logo */
+        .project-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-left: 2px solid var(--brand-color);
+            padding-left: 15px;
+            line-height: 1.2;
             text-transform: uppercase;
-            line-height: 0.9;
-            letter-spacing: -1px;
+            letter-spacing: 1px;
         }
-        
-        h1 span { color: var(--brand-color); }
 
         .header-meta {
             text-align: right;
-            font-family: var(--tech-font);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--text-muted);
+            font-weight: 500;
+            letter-spacing: 0.5px;
         }
 
-        /* CONTAINER CENTRALIZADO */
+        /* CONTAINER */
         .container-single {
             display: flex;
             justify-content: center;
@@ -90,31 +92,35 @@
             width: 100%;
         }
 
-        /* CARD */
+        /* CARD - Estética Clean */
         .card {
             background: var(--bg-card);
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px; /* Bordas arredondadas (mais moderno) */
             position: relative;
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             overflow: hidden;
             display: flex;
             flex-direction: column;
             width: 100%;
+            backdrop-filter: blur(10px); /* Efeito vidro */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         .card:hover {
             transform: translateY(-5px);
             border-color: var(--brand-color);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            box-shadow: 0 20px 40px rgba(46, 11, 48, 0.6);
         }
 
+        /* Número do card mais discreto e elegante */
         .card-number {
             position: absolute;
-            top: -15px;
-            right: -5px;
-            font-family: var(--head-font);
-            font-size: 8rem;
-            font-weight: 700;
+            top: 20px;
+            right: 30px;
+            font-family: var(--main-font);
+            font-size: 4rem;
+            font-weight: 800;
             color: rgba(255, 255, 255, 0.03);
             line-height: 1;
             z-index: 0;
@@ -122,7 +128,7 @@
         }
 
         .card-content {
-            padding: 40px 30px;
+            padding: 50px 40px;
             position: relative;
             z-index: 1;
             display: flex;
@@ -130,95 +136,107 @@
         }
 
         .card-header {
-            margin-bottom: 20px;
-            border-left: 3px solid var(--brand-color);
-            padding-left: 15px;
+            margin-bottom: 30px;
+            border-left: none; /* Removemos a borda lateral industrial */
+            padding-left: 0;
+            text-align: center; /* Centralizamos para ficar mais "apresentação" */
         }
 
         .concept-label {
-            font-family: var(--tech-font);
             color: var(--brand-color);
-            font-size: 0.7rem;
-            letter-spacing: 2px;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            font-weight: 700;
             text-transform: uppercase;
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 15px;
         }
 
         h2 {
-            font-family: var(--head-font);
-            font-size: 2.2rem;
-            font-weight: 500;
+            font-family: var(--main-font);
+            font-size: 2.5rem;
+            font-weight: 700; /* Mais bold como no PPT */
             text-transform: uppercase;
             line-height: 1.1;
+            margin-bottom: 10px;
         }
 
         .text-body {
             font-size: 1.1rem;
-            line-height: 1.5;
-            color: #bbb;
-            margin-bottom: 30px;
+            line-height: 1.6;
+            color: #eee;
+            margin-bottom: 40px;
             font-weight: 300;
+            text-align: center;
+            max-width: 600px;
+            align-self: center;
         }
 
         /* VISUAL ASSETS AREA */
         .visual-assets {
             margin-top: auto;
-            border-top: 1px dashed rgba(255,255,255,0.1);
-            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
         }
 
         .asset-label {
-            font-family: var(--tech-font);
             font-size: 0.7rem;
             color: var(--text-muted);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             display: block;
+            text-align: center;
+            letter-spacing: 1px;
+            font-weight: 600;
         }
 
         .image-stack {
             display: flex;
             flex-direction: column;
-            gap: 25px;
+            gap: 30px;
         }
 
         .kv-wrapper {
             position: relative;
-            border: 1px solid #333;
+            border-radius: 8px; /* Cantos levemente arredondados */
+            overflow: hidden;
             background: #000;
             cursor: pointer;
             transition: all 0.3s ease;
+            border: 2px solid transparent; /* Preparando para o hover */
         }
 
+        /* Tag de Opção mais limpa */
         .kv-tag {
             position: absolute;
-            top: 0;
-            left: 0;
+            top: 15px;
+            left: 15px;
             background: var(--brand-color);
-            color: #000;
-            font-family: var(--tech-font);
-            font-size: 0.7rem;
-            padding: 4px 8px;
-            font-weight: bold;
+            color: #2e0b30; /* Texto roxo no fundo amarelo */
+            font-family: var(--main-font);
+            font-size: 0.75rem;
+            padding: 6px 12px;
+            font-weight: 800;
+            border-radius: 4px;
             z-index: 2;
             pointer-events: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
         .kv-img {
             width: 100%;
             height: auto;
             display: block;
-            opacity: 0.9;
-            transition: opacity 0.3s;
+            opacity: 1; /* Imagem full, sem transparência */
+            transition: transform 0.5s ease;
         }
         
         .kv-wrapper:hover {
             border-color: var(--brand-color);
-            box-shadow: 0 0 15px rgba(255, 94, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .kv-wrapper:hover .kv-img {
-            opacity: 1;
+            transform: scale(1.02); /* Zoom suave */
         }
 
         /* MODAL */
@@ -232,8 +250,8 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.95);
-            backdrop-filter: blur(5px);
+            background-color: rgba(46, 11, 48, 0.95); /* Fundo do modal roxo escuro */
+            backdrop-filter: blur(8px);
             align-items: center;
             justify-content: center;
         }
@@ -243,40 +261,37 @@
             display: block;
             max-width: 90%;
             max-height: 90vh;
-            border: none;
-            box-shadow: none;
+            border-radius: 8px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
             animation: zoomIn 0.3s;
         }
 
         @keyframes zoomIn {
-            from {transform:scale(0.9); opacity:0}
+            from {transform:scale(0.95); opacity:0}
             to {transform:scale(1); opacity:1}
         }
 
         .close {
             position: absolute;
-            top: 20px;
+            top: 25px;
             right: 35px;
-            color: #f1f1f1;
+            color: #fff;
             font-size: 40px;
-            font-weight: bold;
+            font-weight: 300;
             transition: 0.3s;
-            font-family: var(--head-font);
             z-index: 10000;
             cursor: pointer;
         }
 
-        .close:hover,
-        .close:focus {
+        .close:hover {
             color: var(--brand-color);
-            text-decoration: none;
         }
 
         footer {
             margin-top: 60px;
-            font-family: var(--tech-font);
             font-size: 0.7rem;
-            color: #444;
+            color: var(--text-muted);
+            opacity: 0.6;
         }
 
         /* MOBILE FIXES */
@@ -285,50 +300,47 @@
 
             header {
                 flex-direction: column;
-                align-items: flex-start;
-                margin-bottom: 40px;
+                align-items: center;
+                gap: 20px;
+                text-align: center;
             }
 
-            h1 {
-                font-size: 2.2rem;
-                margin-bottom: 15px;
-            }
-
-            .header-meta {
-                text-align: left;
-                width: 100%;
-                border-top: 1px solid #333;
+            .project-title {
+                border-left: none;
+                border-top: 2px solid var(--brand-color);
+                padding-left: 0;
                 padding-top: 10px;
             }
 
+            .header-meta { text-align: center; }
+
             .card-number {
                 font-size: 5rem;
-                top: -5px;
                 opacity: 0.05;
             }
 
             .card-content { padding: 30px 20px; }
             h2 { font-size: 1.8rem; }
-
-            .close {
-                right: 20px;
-                top: 20px;
-                font-size: 50px;
-            }
             
-            .modal-content {
-                width: 100%;
-            }
+            .modal-content { width: 100%; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Wirtgen<br><span>Propostas Visuais // 2026</span></h1>
+        <div class="logo-container">
+            <img src="https://raw.githubusercontent.com/eduardoalvespessoal-star/propostasWIRTGEN2026/main/logo-oxi.png" alt="OXI Logo" class="agency-logo">
+            
+            <div class="project-title">
+                WIRTGEN GROUP<br>
+                <span style="color: var(--brand-color)">CAMPANHA 2026</span>
+            </div>
+        </div>
+
         <div class="header-meta">
-            <p>CONCEITOS DA CAMPANHA</p>
-            <p>STATUS: <span style="color:#00c853">EM REVISÃO</span></p>
+            <p>CLIENTE: WIRTGEN GROUP</p>
+            <p>STATUS: <span style="color: var(--success-color); font-weight: 700;">APROVADO C/ AJUSTES</span></p>
         </div>
     </header>
 
@@ -338,25 +350,25 @@
             <div class="card-number">01</div>
             <div class="card-content">
                 <div class="card-header">
-                    <span class="concept-label">Núcleo de Performance</span>
-                    <h2>Quem tem Wirtgen,<br>não tem dúvida.</h2>
+                    <span class="concept-label">// NÚCLEO DE PERFORMANCE</span>
+                    <h2>QUEM TEM WIRTGEN,<br>NÃO TEM DÚVIDA.</h2>
                 </div>
                 <div class="text-body">
-                    <p>Foco na previsibilidade, estabilidade e segurança técnica da decisão.</p>
+                    <p>Foco na previsibilidade, estabilidade e segurança técnica da decisão. Uma abordagem direta que reforça a liderança de mercado.</p>
                 </div>
                 
                 <div class="visual-assets">
-                    <span class="asset-label">KEY VISUALS [2 OPÇÕES COM AJUSTES] - CLIQUE P/ AMPLIAR</span>
+                    <span class="asset-label">KEY VISUALS (CLIQUE PARA AMPLIAR)</span>
                     <div class="image-stack">
                         
                         <div class="kv-wrapper">
                             <div class="kv-tag">OPÇÃO A (AJUSTADO)</div>
-                            <img src="https://raw.githubusercontent.com/eduardoalvespessoal-star/propostasWIRTGEN2026/main/12609-wirtgen-campanha-fresadoras-1-FINAL.jpg" alt="KV 1 Versão A" class="kv-img trigger-modal">
+                            <img src="https://raw.githubusercontent.com/eduardoalvespessoal-star/propostasWIRTGEN2026/main/12609-wirtgen-campanha-fresadoras-1-FINAL.jpg?v=agency1" alt="KV 1 Versão A" class="kv-img trigger-modal">
                         </div>
 
                         <div class="kv-wrapper">
                             <div class="kv-tag">OPÇÃO B (AJUSTADO)</div>
-                            <img src="https://raw.githubusercontent.com/eduardoalvespessoal-star/propostasWIRTGEN2026/main/12609-wirtgen-campanha-fresadoras-2-FINAL.jpg" alt="KV 1 Versão B" class="kv-img trigger-modal">
+                            <img src="https://raw.githubusercontent.com/eduardoalvespessoal-star/propostasWIRTGEN2026/main/12609-wirtgen-campanha-fresadoras-2-FINAL.jpg?v=agency1" alt="KV 1 Versão B" class="kv-img trigger-modal">
                         </div>
 
                     </div>
@@ -367,7 +379,7 @@
     </div>
 
     <footer>
-        <span>© 2026 WIRTGEN GROUP // SISTEMA: ONLINE V8.2 (FINAL VIEW)</span>
+        <span>© 2026 OXI AGÊNCIA // APRESENTAÇÃO CONFIDENCIAL</span>
     </footer>
 
     <div id="kv-modal" class="modal">
